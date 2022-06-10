@@ -4,6 +4,8 @@ def caesar_cipher(strings, num)
         if strings[pos] >='a' && strings[pos] <= 'z' || strings[pos] >='A' && strings[pos] <= 'Z'
             new_string += (strings[pos].ord() + num ).chr
 
+        else
+            new_string += strings[pos]
         end
     end
    p new_string
