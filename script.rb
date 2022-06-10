@@ -21,7 +21,7 @@ def caesar_cipher(string, shift_value)
         new_string += (new_ascii_num - 91 + 65).chr    
       end
     else 
-      # non letter characters
+      #Adds non letter characters
       new_string += current_char
         
     end
