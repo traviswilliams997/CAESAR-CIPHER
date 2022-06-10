@@ -1,24 +1,26 @@
 def caesar_cipher(string, num)    
   new_string = ''
   for pos in 0...string.length do 
-    if string[pos] >='a' && string[pos] <= 'z' 
+    char = string[pos]
+    ascii_num = string[pos].ord() 
+    if char >='a' && char <= 'z' 
     #(string[pos].ord() + num) converts to ascii value and add entered number
       # z to a wrap logic
-      if (string[pos].ord() + num) <= 122 
-        new_string += (string[pos].ord() + num ).chr
+      if (ascii_num + num) <= 122 
+        new_string += (ascii_num  + num ).chr
       else
-        new_string += ((string[pos].ord() + num ) - 123 + 97).chr
+        new_string += ((ascii_num + num ) - 123 + 97).chr
       end
-    elsif string[pos] >='A' && string[pos] <= 'Z' 
+    elsif char >='A' && char <= 'Z' 
       # Z to A wrap logic
-      if(string[pos].ord() + num) <= 90 
-        new_string += (string[pos].ord() + num ).chr
+      if(ascii_num + num) <= 90 
+        new_string += (ascii_num + num ).chr
       else
-        new_string += ((string[pos].ord() + num ) - 91 + 65).chr    
+        new_string += ((ascii_num + num ) - 91 + 65).chr    
       end
     else 
       # non letter characters
-      new_string += string[pos]
+      new_string += char
         
         end
     end
