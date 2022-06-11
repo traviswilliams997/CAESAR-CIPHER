@@ -1,8 +1,11 @@
+def convert_character_to_ascii_num(character)
+    character.ord() 
+end
 def caesar_cipher(string, shift_value)    
   new_string = ''
   for pos in 0...string.length do 
     current_char = string[pos]
-    ascii_num = current_char.ord() 
+    ascii_num =  convert_character_to_ascii_num(current_char)
     new_ascii_num = ascii_num + shift_value
     new_char = new_ascii_num.chr
 
@@ -28,6 +31,7 @@ def caesar_cipher(string, shift_value)
   end
    p new_string
 end
+
 
 caesar_cipher("What a string!", 5);
 
