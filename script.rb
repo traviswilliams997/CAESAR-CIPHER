@@ -13,6 +13,9 @@ end
 def check_if_character_is_uppercase_letter(character)
   character >='A' && character <= 'Z'
 end
+def wrap_to_start_lowercase(num) 
+  num - 123 + 97
+end
 def caesar_cipher(string, shift_value)    
   new_string = ''
   for pos in 0...string.length do 
@@ -26,7 +29,7 @@ def caesar_cipher(string, shift_value)
       if shifted_ascii_num  <= 122 
         new_string += shifted_char
       else
-        new_string += ( shifted_ascii_num - 123 + 97).chr
+        new_string += convert_ascii_num_to_character(wrap_to_start_lowercase(shift_ascii_num))
       end
     elsif check_if_character_is_uppercase_letter(current_char) 
       # Z to A wrap logic
