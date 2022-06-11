@@ -26,11 +26,11 @@ def wrap_to_start_uppercase(num)
   num - 91 + 65
 end
 
-def check_if_lowercase_ascii_num_is_beyond_letter_range(num)
+def check_if_lowercase_ascii_num_is_in_letter_range(num)
   num  <= 122 
 end
 
-def check_if_uppercase_ascii_num_is_beyond_letter_range(num)
+def check_if_uppercase_ascii_num_is_in_letter_range(num)
   num  <= 90 
 end
 
@@ -43,13 +43,13 @@ def caesar_cipher(string, shift_value)
     shifted_char = convert_ascii_num_to_character(shifted_ascii_num)
 
     if check_if_character_is_lowercase_letter(char)
-      if check_if_lowercase_ascii_num_is_beyond_letter_range(shifted_ascii_num)
+      if check_if_lowercase_ascii_num_is_in_letter_range(shifted_ascii_num)
         new_string += shifted_char
       else
         new_string += convert_ascii_num_to_character(wrap_to_start_lowercase(shift_ascii_num))
       end
     elsif check_if_character_is_uppercase_letter(char) 
-      if check_if_uppercase_ascii_num_is_beyond_letter_range(shifted_ascii_num)
+      if check_if_uppercase_ascii_num_is_in_letter_range(shifted_ascii_num)
         new_string += shifted_char
       else
         new_string += convert_ascii_num_to_character(wrap_to_start_uppercase(shifted_ascii_num))    
