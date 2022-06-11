@@ -16,6 +16,10 @@ end
 def wrap_to_start_lowercase(num) 
   num - 123 + 97
 end
+def wrap_to_start_uppercase(num) 
+  num - 91 + 65
+end
+
 def caesar_cipher(string, shift_value)    
   new_string = ''
   for pos in 0...string.length do 
@@ -36,7 +40,7 @@ def caesar_cipher(string, shift_value)
       if shifted_ascii_num  <= 90 
         new_string += shifted_char
       else
-        new_string += (shifted_ascii_num - 91 + 65).chr    
+        new_string += convert_ascii_num_to_character(wrap_to_start_uppercase(shifted_ascii_num))    
       end
     else 
       #Adds non letter characters
