@@ -55,8 +55,7 @@ def caesar_cipher(string, shift_value)
         shifted_string += convert_ascii_num_to_character(wrap_to_start_uppercase(shifted_ascii_number))    
       end
     else 
-      shifted_string += current_character
-        
+      shifted_string += current_character     
     end
   end
    p shifted_string
