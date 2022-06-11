@@ -4,13 +4,16 @@ end
 def shift_ascii_num(num, value)
   num + value
 end
+def convert_ascii_num_to_character(ascii)
+  ascii.chr
+end
 def caesar_cipher(string, shift_value)    
   new_string = ''
   for pos in 0...string.length do 
     current_char = string[pos]
     ascii_num =  convert_character_to_ascii_num(current_char)
     shifted_ascii_num = shift_ascii_num(ascii_num, shift_value)
-    shifted_char = shifted_ascii_num.chr
+    shifted_char = convert_ascii_num_to_character(shifted_ascii_num)
 
     if current_char >='a' && current_char <= 'z' 
       # z to a wrap logic
