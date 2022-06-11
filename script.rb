@@ -30,6 +30,11 @@ def check_if_lowercase_ascii_num_is_beyond_letter_range(num)
   num  <= 122 
 end
 
+def check_if_uppercase_ascii_num_is_beyond_letter_range(num)
+  num  <= 90 
+end
+
+
 def caesar_cipher(string, shift_value)    
   new_string = ''
   string.each_char do |char| 
@@ -40,14 +45,14 @@ def caesar_cipher(string, shift_value)
 
     if check_if_character_is_lowercase_letter(char)
       # z to a wrap logic
-      if check_if_lowercase_ascii_num_is_out_of_bounds(shifted_ascii_num)
+      if check_if_lowercase_ascii_num_is_beyond_letter_range(shifted_ascii_num)
         new_string += shifted_char
       else
         new_string += convert_ascii_num_to_character(wrap_to_start_lowercase(shift_ascii_num))
       end
     elsif check_if_character_is_uppercase_letter(char) 
       # Z to A wrap logic
-      if shifted_ascii_num  <= 90 
+      if check_if_uppercase_ascii_num_is_beyond_letter_range(shifted_ascii_num)
         new_string += shifted_char
       else
         new_string += convert_ascii_num_to_character(wrap_to_start_uppercase(shifted_ascii_num))    
