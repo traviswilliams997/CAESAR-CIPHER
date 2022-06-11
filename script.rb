@@ -6,22 +6,22 @@ def caesar_cipher(string, shift_value)
   for pos in 0...string.length do 
     current_char = string[pos]
     ascii_num =  convert_character_to_ascii_num(current_char)
-    new_ascii_num = ascii_num + shift_value
-    new_char = new_ascii_num.chr
+    shifted_ascii_num = ascii_num + shift_value
+    new_char = shifted_ascii_num.chr
 
     if current_char >='a' && current_char <= 'z' 
       # z to a wrap logic
-      if new_ascii_num  <= 122 
+      if shifted_ascii_num  <= 122 
         new_string += new_char
       else
-        new_string += ( new_ascii_num - 123 + 97).chr
+        new_string += ( shifted_ascii_num - 123 + 97).chr
       end
     elsif current_char >='A' && current_char <= 'Z' 
       # Z to A wrap logic
-      if new_ascii_num  <= 90 
+      if shifted_ascii_num  <= 90 
         new_string += new_char
       else
-        new_string += (new_ascii_num - 91 + 65).chr    
+        new_string += (shifted_ascii_num - 91 + 65).chr    
       end
     else 
       #Adds non letter characters
